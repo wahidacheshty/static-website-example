@@ -1,4 +1,3 @@
-
 pipeline {
     agent any
     stages {
@@ -14,12 +13,12 @@ pipeline {
                         echo "Deploying to PRODUCTION server..."
                     } else if (env.BRANCH_NAME == 'dev') {
                         echo "Deploying to STAGING server..."
+                    } 
+                     else if (env.BRANCH_NAME == 'qa') {
+                        echo "Deploying to QA server..."
                     } else {
                         echo "Feature branch detected. Skipping deployment, only running tests."
                     }
                 }
             }
         }
-    }
-}
-
